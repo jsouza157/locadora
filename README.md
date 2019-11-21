@@ -7,6 +7,8 @@
 
 ## Setup
 
+Instale o Adonis.js https://adonisjs.com/docs/4.1/installation
+
 No terminal vá até a pasta do projeto e execute o seguinte comando
 
 ```bash
