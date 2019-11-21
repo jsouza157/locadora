@@ -17,6 +17,23 @@ class MovieRepository {
     }
   }
 
+  async search(movie, response)
+  {
+    try {
+      let data = await Movie.query()
+                    .where('title', 'like', '%'+movie.title+'%')
+                    .where('leased', false)
+                    .fetch();
+
+      if(data.rows.length == 0)
+        throw new Error('Movie not fount');
+
+      return response.status(200).json(data);
+    } catch (e) {
+      return response.status(400).json({"message" : e.message});
+    }
+  }
+
   async leased(movie, response, user_id)
   {
     try {

@@ -18,8 +18,8 @@ const Route = use('Route')
 
 /** NOT AUTH */
 Route.group(() => {
-  Route.post('/auth', 'UserController.auth')
-  Route.post('/user/store', 'UserController.store')
+  Route.post('/auth', 'UserController.auth').validator('Auth')
+  Route.post('/user/store', 'UserController.store').validator('StoreUser')
 })
 .prefix('api/v1')
 
@@ -28,13 +28,14 @@ Route.group(() => {
   Route.get('/user', 'UserController.get')
   Route.get('/logout', 'UserController.logout')
 
-  Route.get('/movies', 'MovieController.listMovies')
-  Route.patch('/movies/leased', 'MovieController.leasedMovie')
-  Route.patch('/movies/return', 'MovieController.returnMovie')
+  Route.get('/movies', 'MovieController.list')
+  Route.post('/movies/search', 'MovieController.search').validator('SearchMovie')
+  Route.patch('/movies/leased', 'MovieController.leased').validator('LeaseMovie')
+  Route.patch('/movies/return', 'MovieController.return').validator('ReturnMovie')
 })
 .middleware('auth')
 .prefix('api/v1')
 
 Route.any('*', ({ response }) => {
-  return response.status(404).json({'message' : 'Not found'});
+  return response.status(404).json({'message' : 'Page not found'});
 });
