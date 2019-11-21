@@ -7,6 +7,12 @@
 
 ## Setup
 
+No terminal vá até a pasta do projeto e execute o seguinte comando
+
+```bash
+cp .env-example .env
+```
+
 Use este comando para criar o banco de dados (MySql)
 
 ```bash
@@ -19,6 +25,10 @@ npm install
 
 ```bash
 npm install mysql --save
+```
+
+```bash
+adonis key:generate
 ```
 
 
