@@ -1,28 +1,47 @@
-# Adonis API application
+# Locadora API - Stacks
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+1. Node.js - Linguagem do teste
+2. MySql - Banco SQL escolhido
+3. Redis - Utilizado para filas de locação
+4. Adonis.js - Framework node.js
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Use este comando para criar o banco de dados (MySql)
 
 ```bash
-adonis new yardstick --api-only
+CREATE DATABASE locadora_4all
 ```
 
-or manually clone the repo and then run `npm install`.
+```bash
+npm install
+```
+
+```bash
+npm install mysql --save
+```
 
 
 ### Migrations
 
-Run the following command to run startup migrations.
+Utilizei as migrations para criação das tabelas
 
 ```js
 adonis migration:run
+```
+
+### Seeds
+
+Seeds criam dados para popular o banco de dados
+
+```js
+adonis seed
+```
+
+### Server
+
+Para rodar o servidor utilize o seguinte comando
+
+```js
+adonis serve
 ```

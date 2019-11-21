@@ -1,0 +1,64 @@
+## Lista de chamadas API
+
+Base URL : http://127.0.0.1/3333/api/v1
+
+======================================================================================
+Descrição : Autenticação do usuário (cliente).
+Método HTTP : POST
+Endpoint : /auth
+Header : Accpet : application/json
+Parâmetros : email (required) | password (required)
+Retorno : retorna 200 e o token de autenticação da api.
+=======================================================================================
+Descrição : Criação de usuário (cliente).
+Método HTTP : POST
+Endpoint : /user/store
+Header : Accpet : application/json
+Parâmetros : name (required) | email (required) | password (required)
+Retorno : retorna 201 e mensagem.
+=======================================================================================
+Descrição : Retorna os dados do usuário (cliente).
+Método HTTP : GET
+Endpoint : /user
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Retorno : retorna 200 e os dados do usuário.
+========================================================================================
+Descrição : Deslogar usuário (cliente).
+Método HTTP : GET
+Endpoint : /logout
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Retorno : retorna 200 e mensagem.
+=======================================================================================
+Descrição : Filmes disponíveis.
+Método HTTP : GET
+Endpoint : /movies
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Retorno : retorna 200 e a lista de filmes.
+=======================================================================================
+Descrição : Pesquisar filmes.
+Método HTTP : POST
+Endpoint : /movies/search
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Parâmetros : title (required)
+Retorno : retorna 200 e os filmes com o título escolhido.
+=======================================================================================
+Descrição : Locar filme.
+Método HTTP : PATCH
+Endpoint : /movies/leased
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Parâmetros : movie_id (required)
+Retorno : retorna 200 e mensagem.
+=======================================================================================
+Descrição : Devolver filme.
+Método HTTP : PATCH
+Endpoint : /movies/return
+Header : Accpet : application/json
+Authorization : type = bearer | Utilizar o token que foi gerado na autenticação /auth
+Parâmetros : movie_id (required)
+Retorno : retorna 200 e mensagem.
+=======================================================================================
